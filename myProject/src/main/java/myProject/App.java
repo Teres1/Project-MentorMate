@@ -6,15 +6,18 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)throws IOException {
 		String COMMA_DELIMITER=", ";
 		String NEW_LINE_SEPARATOR="\n";
 		String FILE_HEADER="Name     , Score";
 		ObjectMapper mapper=new ObjectMapper();
         List<Pojo>employees=new ArrayList<Pojo>();
+        BufferedReader rd=new BufferedReader(new InputStreamReader(System.in));
+        String pathToJSONDataFile=rd.readLine();
+        String pathToJSONReportDefinitionFile=rd.readLine();
 		try {
-			Pojo pojo[]=mapper.readValue(new File("C:\\Users\\Stan\\Desktop\\file.json"),Pojo[].class);
-			SecondPojo secondPojo=mapper.readValue(new File("C:\\Users\\Stan\\Desktop\\secondFile.json"), SecondPojo.class);
+			Pojo pojo[]=mapper.readValue(new File(pathToJSONDataFile),Pojo[].class);
+			SecondPojo secondPojo=mapper.readValue(new File(pathToJSONReportDefinitionFile), SecondPojo.class);
 			double topPerformenceThreshold=secondPojo.getTopPerformersThreshold();
 			boolean useExperienceMultiplier=secondPojo.isUseExperienceMultiplier();
 			double periodLimit=secondPojo.getPeriodLimit();
