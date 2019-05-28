@@ -13,7 +13,7 @@ public class App {
 		ObjectMapper mapper=new ObjectMapper();
         List<Pojo>employees=new ArrayList<Pojo>();
 		try {
-			Pojo pojo[]=mapper.readValue(new File("C:\\Users\\Stan\\eclipse-workspace\\myProject\\file.json"),Pojo[].class);
+			Pojo pojo[]=mapper.readValue(new File("https://github.com/Teres1/Project-MentorMate/tree/master/myProject/file.json"),Pojo[].class);
 			SecondPojo secondPojo=mapper.readValue(new File("C:\\Users\\Stan\\Desktop\\secondFile.json"), SecondPojo.class);
 			double topPerformenceThreshold=secondPojo.getTopPerformersThreshold();
 			boolean useExperienceMultiplier=secondPojo.isUseExperienceMultiplier();
